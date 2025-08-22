@@ -1,6 +1,7 @@
 package com.javaspring.dslist.dto;
 
 import com.javaspring.dslist.entities.Game;
+import com.javaspring.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -28,6 +29,17 @@ public class GameMinDTO {
         this.imgUrl = entity.getImgUrl();
         this.shortDescription = entity.getShortDescription();
     }
+    public GameMinDTO(GameMinProjection projection) {
+
+        // Construtor que recebe uma projeção GameMinProjection e inicializa os campos do DTO
+        // Isso permite que o DTO seja criado a partir de uma projeção existente
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
+    }
+
 
     public Long getId() {
         return id;
